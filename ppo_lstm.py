@@ -447,5 +447,5 @@ if __name__ == '__main__':
     ppo(env_fn, actor=userActor, critic=userCritic,#core.MLPActorCritic, #gym.make(args.env)
         ac_kwargs=dict(hidden_sizes=[args.hid]*args.l), gamma=args.gamma, 
         seed=args.seed, steps_per_epoch=args.steps, epochs=args.epochs,
-        logger_kwargs=logger_kwargs, clip_ratio=0.2, pi_lr=0.001, vf_lr=0.001, pretrain=None)#args.pretrain)
+        logger_kwargs=logger_kwargs, clip_ratio=0.2, pi_lr=0.0003, vf_lr=0.0001, pretrain=None)#args.pretrain)
 

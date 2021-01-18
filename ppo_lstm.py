@@ -430,7 +430,7 @@ if __name__ == '__main__':
     parser.add_argument('--cpu', type=int, default=1)
     parser.add_argument('--steps', type=int, default=4000)
     parser.add_argument('--epochs', type=int, default=350)
-    parser.add_argument('--pretrain', type=str, default='/root/lele/spinningup/spinningup/data/ppo_0715/ppo_0715_s0/pyt_save/model.pt')
+    parser.add_argument('--pretrain', type=str, default='/content/Supermariobros-PPO-pytorch/pretrain/pyt_save/model.pt')
     parser.add_argument('--exp_name', type=str, default='ppo_lstm_1106')
     args = parser.parse_args()
 
@@ -447,5 +447,5 @@ if __name__ == '__main__':
     ppo(env_fn, actor=userActor, critic=userCritic,#core.MLPActorCritic, #gym.make(args.env)
         ac_kwargs=dict(hidden_sizes=[args.hid]*args.l), gamma=args.gamma, 
         seed=args.seed, steps_per_epoch=args.steps, epochs=args.epochs,
-        logger_kwargs=logger_kwargs, clip_ratio=0.2, pi_lr=0.0003, vf_lr=0.0001, pretrain=None)#args.pretrain)
+        logger_kwargs=logger_kwargs, clip_ratio=0.2, pi_lr=0.001, vf_lr=0.001, pretrain=args.pretrain)
 
